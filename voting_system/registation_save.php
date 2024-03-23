@@ -2,8 +2,14 @@
 session_start();
 $db_connect = mysqli_connect('localhost','root','','votter_aplication');
 
+if(isset($_SESSION['login_success'])){
+    $_SESSION['you_are_login'] = "Your Acount has been regected";
+    $_SESSION['message_code'] = "error";
+    header('location:registation.php');
+}
+else{
 /*====================================
-          form fild access
+          form fild data
 =====================================*/
 if(isset($_POST['submit'])){
     $name = $_POST['name'];
@@ -20,6 +26,20 @@ if(isset($_POST['submit'])){
     $village = $_POST['village'];
     $photo = $_FILES['photo'];
 }
+
+    // if($nid_number > 9999999999999){
+    //     $_SESSION['valid_number'] = "This NID Number is wrong";
+    //     header('location:registation.php');
+    // }
+    // else{
+    //     if($nid_number > 1000000000000){
+    //         $nid_number_valided = $_POST['nid_number'];
+    //     }
+    //     else{
+    //         $_SESSION['valid_number'] = "This NID Number is wrong";
+    //         header('location:registation.php');
+    //     }
+    // }
 
 /*===============================
       photo extension name
@@ -47,6 +67,7 @@ $email_exist = "SELECT COUNT(*) as total FROM voters WHERE email = '$email'";
 $mysqli_query =  mysqli_query($db_connect,$email_exist);
 $after_accos = mysqli_fetch_assoc($mysqli_query);
 
+
 if($after_accos['total'] != 1 ){
 
     /*========================================
@@ -64,10 +85,12 @@ if($after_accos['total'] != 1 ){
             $file_name = $photo_name.'.'.$extension;
             $new_location = 'image/'.$file_name;
             move_uploaded_file($photo['tmp_name'],$new_location);
-        
+
             $insert = "INSERT INTO voters (name,email,phone,father_name,mother_name,birth_day,nid_number,gender,district,subdistrict,zip,village,photo,created_at) VALUES ('$name','$email','$phone','$father_name','$mother_name','$birth_day','$nid_number','$gender','$district','$subdistrict','$zip','$village','$file_name','$created_at')";
             mysqli_query($db_connect,$insert);
-            header('location:login.php');
+            $_SESSION['message'] = "Your registation successfully";
+            $_SESSION['message_code'] = "success";
+            header('location:registation.php');
         }
         else{
 
@@ -143,4 +166,9 @@ else{
     $_SESSION['email_exists'] = "Email alredy exists";
     header('location:registation.php');
 }
+}
+
+
+
+
 ?>

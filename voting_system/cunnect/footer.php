@@ -1,20 +1,7 @@
-
 </div>
         </div>
         <!--**********************************
             Content body end
-        ***********************************-->
-
-        <!--**********************************
-            Footer start
-        ***********************************-->
-        <div class="footer">
-            <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="http://dexignzone.com/" target="_blank">DexignZone</a> <?= date('Y')?></p>
-            </div>
-        </div>
-        <!--**********************************
-            Footer end
         ***********************************-->
 
 		<!--**********************************
@@ -49,6 +36,8 @@
 	<script src="../backend/vendor/apexchart/apexchart.js"></script>
 	
 	<!-- Dashboard 1 -->
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 	<script src="../backend/js/dashboard/dashboard-1.js"></script>
 	<script src="../backend/js/dashboard/dashboard-1.js"></script>
 	<script>

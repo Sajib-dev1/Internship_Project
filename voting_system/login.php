@@ -6,7 +6,6 @@ session_start();
 if(isset($_SESSION['login_success'])){
     header('location:voter/dashboard.php');
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
@@ -31,8 +30,8 @@ if(isset($_SESSION['login_success'])){
                         <div class="row no-gutters">
                             <div class="col-xl-12">
                                 <div class="auth-form" style="background-color: #fff;">
-									<div class="text-center mb-3">
-										<a href="index.html"><img src="images/logo-full.png" alt=""></a>
+									<div class="text-center">
+										<a href="index.html"><img src="image/logo_voter.png" width="100" alt=""></a>
 									</div>
                                     <h4 class="text-center mb-4">Sign in your account</h4>
                                     <form action="login_save.php" method="post">

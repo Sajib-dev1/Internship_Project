@@ -10,8 +10,21 @@ session_start();
     <title>Election-Pannel</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="image/logo_voter.png">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link href="backend/css/style.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        .toast{
+            width : 480px !important;
+            top : 70px !important;
+            }
+            .toast-success {
+            background-color: #51a351 !important;
+            }
+            .toast-error {
+                background-color: #bd362f !important;
+            }
+    </style>
 </head>
 
 <body class="h-100 bg-primary">
@@ -182,6 +195,13 @@ session_start();
                                                             <?php
                                                         }unset($_SESSION['nid_number_error']);
                                                     ?>
+                                                    <?php
+                                                        if(isset($_SESSION['valid_number'])){
+                                                            ?>
+                                                            <div class="text-danger"><?= $_SESSION['valid_number']?></div>
+                                                            <?php
+                                                        }unset($_SESSION['valid_number']);
+                                                    ?>
                                                 </div>
                                             </div>
 
@@ -279,7 +299,7 @@ session_start();
                                                         border-danger
                                                         <?php
                                                     }
-                                                    ?>" name="photo">
+                                                    ?>" name="photo" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                                     <?php
                                                         if(isset($_SESSION['photo_error'])){
                                                             ?>
@@ -287,6 +307,9 @@ session_start();
                                                             <?php
                                                         }unset($_SESSION['photo_error']);
                                                     ?>
+                                                </div>
+                                                <div class="form-group">
+                                                    <img src="" alt="" id="blah" width="100">
                                                 </div>
                                             </div>
 
@@ -318,6 +341,9 @@ session_start();
 
                                         </div>
                                     </form>
+                                    <div class="new-account mt-3">
+                                        <p class="">Alrady have an account? <a class="text-info" href="login.php">Sign In</a></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -334,7 +360,38 @@ session_start();
 <script src="backend/vendor/global/global.min.js"></script>
 <script src="backend/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 <script src="backend/js/custom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script src="backend/js/deznav-init.js"></script>
+<?php
+if(isset($_SESSION['message']) && $_SESSION['message'] != ''){
+    ?>
+    <script>
+        Swal.fire({
+            title: "Good job!",
+            text: "<?= $_SESSION['message']?>",
+            icon: "<?= $_SESSION['message_code']?>"
+        });
+    </script>
+    <?php
+    unset($_SESSION['message']);
+    unset($_SESSION['message_code']);
+}
 
+if(isset($_SESSION['you_are_login']) && $_SESSION['you_are_login'] != ''){
+    ?>
+    <script>
+        Swal.fire({
+            title: "Regected!",
+            text: "<?= $_SESSION['you_are_login']?>",
+            icon: "<?= $_SESSION['message_code']?>"
+        });
+    </script>
+    <?php
+    unset($_SESSION['you_are_login']);
+    unset($_SESSION['message_code']);
+}
+
+?>
 </body>
 </html>
