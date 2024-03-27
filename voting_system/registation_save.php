@@ -27,20 +27,6 @@ if(isset($_POST['submit'])){
     $photo = $_FILES['photo'];
 }
 
-    // if($nid_number > 9999999999999){
-    //     $_SESSION['valid_number'] = "This NID Number is wrong";
-    //     header('location:registation.php');
-    // }
-    // else{
-    //     if($nid_number > 1000000000000){
-    //         $nid_number_valided = $_POST['nid_number'];
-    //     }
-    //     else{
-    //         $_SESSION['valid_number'] = "This NID Number is wrong";
-    //         header('location:registation.php');
-    //     }
-    // }
-
 /*===============================
       photo extension name
 =================================*/
