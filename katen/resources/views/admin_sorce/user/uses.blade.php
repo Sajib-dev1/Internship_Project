@@ -7,10 +7,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <h4 class="header-title">User Table List</h4>
-                        <h4 class="btn btn-primary"><i class="fa fa-user-plus" aria-hidden="true"></i> Add User</h4>
-                    </div>
+                    <h4 class="header-title">User Table List</h4>
 
                     <table id="datatable-buttons" class="table table-striped dt-responsive nowrap w-100">
                         <thead>

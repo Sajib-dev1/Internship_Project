@@ -2,13 +2,13 @@
     <!-- Brand Logo -->
     <div class="logo-box">
         <!-- Brand Logo Light -->
-        <a class='logo-light' href='index.html'>
+        <a class='logo-light' href='{{ route('admin.dashboard') }}'>
             <img src="{{ asset('backend') }}/images/logo-light.png" alt="logo" class="logo-lg" height="28">
             <img src="{{ asset('backend') }}/images/logo-sm.png" alt="small logo" class="logo-sm" height="28">
         </a>
 
         <!-- Brand Logo Dark -->
-        <a class='logo-dark' href='index.html'>
+        <a class='logo-dark' href='{{ route('admin.dashboard') }}'>
             <img src="{{ asset('backend') }}/images/logo-dark.png" alt="dark logo" class="logo-lg" height="28">
             <img src="{{ asset('backend') }}/images/logo-sm.png" alt="small logo" class="logo-sm" height="28">
         </a>
@@ -21,7 +21,7 @@
             <li class="menu-title">Main</li>
 
             <li class="menu-item">
-                <a class='menu-link waves-effect waves-light' href='{{ route('dashboard') }}'>
+                <a class='menu-link waves-effect waves-light' href='{{ route('admin.dashboard') }}'>
                     <span class="menu-icon"><i class="bx bx-home-smile"></i></span>
                     <span class="menu-text"> {{ __('Dashboards') }} </span>
                 </a>
@@ -30,58 +30,21 @@
             <li class="menu-title">Backend</li>
 
             <li class="menu-item">
-                <a class='menu-link waves-effect waves-light' href='{{ route('user') }}'>
-                    <span class="menu-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                    <span class="menu-text"> User </span>
-                </a>
-            </li>
-
-            <li class="menu-item">
                 <a href="#menuExpages" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
                     <span class="menu-icon"><i class="bx bx-file"></i></span>
-                    <span class="menu-text">Write Your Blog</span>
+                    <span class="menu-text">Sorce List</span>
                     <span class="menu-arrow"></span>
                 </a>
                 <div class="collapse" id="menuExpages">
                     <ul class="sub-menu">
                         <li class="menu-item">
-                            <a class='menu-link' href='{{ route('blog') }}'>
-                                <span class="menu-text">Add New Blog</span>
+                            <a class='menu-link' href='{{ route('category') }}'>
+                                <span class="menu-text">Category</span>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a class='menu-link' href='pages-invoice.html'>
-                                <span class="menu-text">Invoice</span>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a class='menu-link' href='pages-login.html'>
-                                <span class="menu-text">Log In</span>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a class='menu-link' href='pages-register.html'>
-                                <span class="menu-text">Register</span>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a class='menu-link' href='pages-recoverpw.html'>
-                                <span class="menu-text">Recover Password</span>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a class='menu-link' href='pages-lock-screen.html'>
-                                <span class="menu-text">Lock Screen</span>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a class='menu-link' href='pages-404.html'>
-                                <span class="menu-text">Error 404</span>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a class='menu-link' href='pages-500.html'>
-                                <span class="menu-text">Error 500</span>
+                            <a class='menu-link' href='{{ route('tag') }}'>
+                                <span class="menu-text">Tag List</span>
                             </a>
                         </li>
                     </ul>

@@ -199,7 +199,6 @@
                     data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                     aria-expanded="false">
 
-
                     @if (Auth::user()->photo == null)
                     <img src="{{ Avatar::create( Auth::user()->name )->toBase64() }}" width="50"  class="rounded-circle"/>
                     @else 

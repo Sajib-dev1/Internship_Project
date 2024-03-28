@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light" data-menu-color="brand" data-topbar-color="light">
     <head>
@@ -15,6 +16,7 @@
         <link href="{{ asset('backend') }}/libs/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
         <link href="{{ asset('backend') }}/libs/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
         <link href="{{ asset('backend') }}/libs/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
         <!-- third party css end -->
 
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -22,7 +24,7 @@
         <link href="{{ asset('backend') }}/libs/morris.js/morris.css" rel="stylesheet" type="text/css" />
         <link href="{{ asset('backend') }}/css/style.min.css" rel="stylesheet" type="text/css">
         <link href="{{ asset('backend') }}/css/icons.min.css" rel="stylesheet" type="text/css">
-        @yield('css_link')
+        <script src="{{ asset('backend') }}/js/config.js"></script>
         <style>
             .toast{
             width : 350px !important;
@@ -43,7 +45,7 @@
         <div class="layout-wrapper">
 
             <!-- ========== Left Sidebar ========== -->
-            @include('include.saidebar')
+            @include('include.saidebarAdmin')
             <!-- ============================================================== -->
             <!-- Start Page Content here -->
             <!-- ============================================================== -->
@@ -106,11 +108,11 @@
         <script src="{{ asset('backend') }}/libs/datatables.net-select/js/dataTables.select.min.js"></script>
         <script src="{{ asset('backend') }}/libs/pdfmake/build/pdfmake.min.js"></script>
         <script src="{{ asset('backend') }}/libs/pdfmake/build/vfs_fonts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
         <!-- third party js ends -->
 
         <!-- Datatables js -->
-        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
         <script src="{{ asset('backend') }}/js/pages/datatables.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
         <script src="{{ asset('backend') }}/libs/jquery-knob/jquery.knob.min.js"></script>
@@ -118,7 +120,6 @@
         <script src="{{ asset('backend') }}/libs/morris.js/morris.min.js"></script>
         <script src="{{ asset('backend') }}/libs/raphael/raphael.min.js"></script>
         <script src="{{ asset('backend') }}/js/pages/dashboard.js"></script>
-        <script src="{{ asset('backend') }}/js/config.js"></script>
         @yield('footer_script')
 
     </body>
