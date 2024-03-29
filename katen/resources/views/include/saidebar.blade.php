@@ -50,38 +50,8 @@
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a class='menu-link' href='pages-invoice.html'>
-                                <span class="menu-text">Invoice</span>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a class='menu-link' href='pages-login.html'>
-                                <span class="menu-text">Log In</span>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a class='menu-link' href='pages-register.html'>
-                                <span class="menu-text">Register</span>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a class='menu-link' href='pages-recoverpw.html'>
-                                <span class="menu-text">Recover Password</span>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a class='menu-link' href='pages-lock-screen.html'>
-                                <span class="menu-text">Lock Screen</span>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a class='menu-link' href='pages-404.html'>
-                                <span class="menu-text">Error 404</span>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a class='menu-link' href='pages-500.html'>
-                                <span class="menu-text">Error 500</span>
+                            <a class='menu-link' href='{{ route('blog.list') }}'>
+                                <span class="menu-text">Blog List</span>
                             </a>
                         </li>
                     </ul>
@@ -123,7 +93,7 @@
                 </div>
             </li>
 
-            <li class="menu-title">Components</li>
+            <li class="menu-title">Frontend</li>
 
             <li class="menu-item">
                 <a href="#menuComponentsui" data-bs-toggle="collapse"

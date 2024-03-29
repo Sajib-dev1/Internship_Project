@@ -36,9 +36,9 @@
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->created_at->format('d/m/Y') }}</td>
                                     <td>
-                                        <a href="" class="btn btn-success btn-sm" title="view"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                        <a href="" class="btn btn-primary btn-sm" title="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                        <a href="" class="btn btn-danger btn-sm" title="delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                        <a href="{{ route('user.view',$user->id) }}" class="btn btn-success btn-sm" title="view"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                        <a href="{{ route('user.edit',$user->id) }}" class="btn btn-primary btn-sm" title="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        <a href="{{ route('user.delete',$user->id) }}" class="btn btn-danger btn-sm" title="delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -50,4 +50,26 @@
         </div><!-- end col-->
     </div>
     <!-- end row-->
+
+    <!-- Button trigger modal -->
+@endsection
+@section('footer_script')
+<script>
+    @if(Session::has('updated'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+            toastr.success("{{ session('updated') }}");
+    @endif
+    @if(Session::has('delete'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+            toastr.error("{{ session('delete') }}");
+    @endif
+</script>
 @endsection

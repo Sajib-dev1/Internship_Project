@@ -12,21 +12,30 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="header-title">Add Blog</h4>
-                <form>
+                <form action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                         <div class="mb-2 col-md-12">
                             <label for="inputTitle4" class="form-label">Blog Title</label>
                             <input type="text" class="form-control" name="blog_title" id="inputTitle4" placeholder="Blog Title">
+                            <input type="hidden" name="bloger_id" value="{{ Auth::id() }}">
+                            @error('blog_title')
+                                <strong class="text-danger">{{ $message }}</strong>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="mb-2 col-md-6">
                             <label for="inputTitle4" class="form-label">Category List</label>
-                            <select class="js-example-basic-multiple" class="form-control mulci" id="inputTitle4" name="category[]" multiple="multiple">
+                            <select class="js-example-basic-single" name="category">
+                                <option value="">Select Category</option>
                                 @foreach ( $categories as $category )
                                     <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                                 @endforeach
                               </select>
+                            @error('category')
+                                <strong class="text-danger">{{ $message }}</strong>
+                            @enderror
                         </div>
                         <div class="mb-2 col-md-6">
                             <label for="inputTitle4" class="form-label">Tag List</label>
@@ -35,12 +44,18 @@
                                     <option value="{{ $tag->id }}">{{ $tag->tag_name }}</option>
                                 @endforeach
                               </select>
+                            @error('tag')
+                                <strong class="text-danger">{{ $message }}</strong>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="mb-2 col-md-12">
                             <label for="inputTitle4" class="form-label">Blog Dascription</label>
                             <textarea id="blog_des" name="blog_des" class="form-control" cols="30" rows="10"></textarea>
+                            @error('blog_des')
+                                <strong class="text-danger">{{ $message }}</strong>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -61,13 +76,19 @@
                     <div class="row mt-3">
                         <div class="mb-2 col-md-12">
                             <label for="inputTitle4" class="form-label">Sumary Description</label>
-                            <textarea id="summary_blog" name="summary_blog" class="form-control" cols="30" rows="5"></textarea>
+                            <textarea id="" name="summary_blog" class="form-control" cols="30" rows="5"></textarea>
+                            @error('summary_blog')
+                                <strong class="text-danger">{{ $message }}</strong>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="mb-2 col-md-12">
                             <label for="inputTitle4" class="form-label">Blog Image</label>
-                            <input type="flie" class="form-control" name="image">
+                            <input type="file" class="form-control" name="image">
+                            @error('image')
+                                <strong class="text-danger">{{ $message }}</strong>
+                            @enderror
                         </div>
                     </div>
 
@@ -82,8 +103,9 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $('.js-example-basic-multiple').select2();
+        // In your Javascript (external .js resource or <script> tag)
+            $(document).ready(function() {
+            $('.js-example-basic-single').select2();
         });
 
         $(document).ready(function() {
@@ -93,10 +115,6 @@
       <script>
         $(document).ready(function() {
             $('#blog_des').summernote();
-        });
-
-        $(document).ready(function() {
-            $('#summary_blog').summernote();
         });
       </script>
     <script>
@@ -126,4 +144,14 @@
             });
         });
         </script>
+    <script>
+        @if(Session::has('success'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+            toastr.success("{{ session('success') }}");
+        @endif
+    </script>
 @endsection

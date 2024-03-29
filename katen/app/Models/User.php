@@ -49,6 +49,10 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    function rel_to_country(){
+        return $this->belongsTo(Country::class,'id');
+    }
+
     function rel_to_city(){
         return $this->belongsTo(City::class,'id');
     }
